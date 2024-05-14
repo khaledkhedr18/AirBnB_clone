@@ -1,9 +1,11 @@
 #!usr/bin/python3
-""" This module defines the BaseModel class that defines all common attributes/methods for other classes """
+""" This module defines the BaseModel class that defines
+all common attributes/methods for other classes """
 
 
 import datetime
 import uuid
+
 
 class BaseModel:
     def __init__(self, id=None, createdat=None, updatedat=None):
@@ -13,7 +15,7 @@ class BaseModel:
         self.save()
 
     def save(self):
-        """ the save method for the class"""
+        """the save method for the class"""
         self.updatedat = datetime.datetime.now()
 
     def  to_dict(self):
