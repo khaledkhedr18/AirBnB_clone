@@ -37,4 +37,3 @@ class BaseModel:
         all the attributes and methods for the class
         """
         return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
-    
