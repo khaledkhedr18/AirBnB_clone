@@ -12,7 +12,7 @@ class BaseModel:
         """ the initialization method for the class"""
         self.id = str(uuid.uuid4())
         self.created_at = datetime.datetime.now()
-        self.save()
+        self.updated_at = datetime.datetime.now()
 
     def save(self):
         """the save method for the class"""
@@ -26,9 +26,9 @@ class BaseModel:
         """
 
         dictionary = self.__dict__
-        dictionary.update({'__class__': self.__class__.__name__})
-        dictionary['created_at'] = self.createdat.isoformat()
-        dictionary['updated_at'] = self.updatedat.isoformat()
+        dictionary["__class__"] = self.__class__.__name__
+        dictionary["created_at"] =dictionary["created_at"].isoformat()
+        dictionary["updated_at"] = dictionary["updated_at"].isoformat()
         return dictionary
 
     def __str__(self):
