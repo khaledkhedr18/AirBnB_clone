@@ -8,10 +8,10 @@ import uuid
 
 
 class BaseModel:
-    def __init__(self, id=None, createdat=None, updatedat=None):
+    def __init__(self, id=None, created_at=None, updated_at=None):
         """ the initialization method for the class"""
         self.id = str(uuid.uuid4())
-        self.createdat = datetime.datetime.now()
+        self.created_at = datetime.datetime.now()
         self.save()
 
     def save(self):
@@ -27,8 +27,8 @@ class BaseModel:
 
         dictionary = self.__dict__
         dictionary.update({'__class__': self.__class__.__name__})
-        dictionary['createdat'] = self.createdat.isoformat()
-        dictionary['updatedat'] = self.updatedat.isoformat()
+        dictionary['created_at'] = self.createdat.isoformat()
+        dictionary['updated_at'] = self.updatedat.isoformat()
         return dictionary
 
     def __str__(self):
