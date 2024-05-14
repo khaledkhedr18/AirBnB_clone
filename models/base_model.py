@@ -1,4 +1,3 @@
-#!usr/bin/python3
 """ This module defines the BaseModel class that defines
 all common attributes/methods for other classes """
 
@@ -8,7 +7,7 @@ import uuid
 
 
 class BaseModel:
-    def __init__(self, id=None, created_at=None, updated_at=None):
+    def __init__(self, *args, **kwargs):
         """ the initialization method for the class"""
         self.id = str(uuid.uuid4())
         self.created_at = datetime.datetime.now()
@@ -26,7 +25,7 @@ class BaseModel:
         """
 
         dictionary = self.__dict__
-        dictionary["__class__"] = self.__class__.__name__
+        dictionary["__class__"] = type(self).__name__
         dictionary["created_at"] = dictionary["created_at"].isoformat()
         dictionary["updated_at"] = dictionary["updated_at"].isoformat()
         return dictionary
@@ -37,5 +36,5 @@ class BaseModel:
         it will return a string containing
         all the attributes and methods for the class
         """
-        return "[{}] ({}) {}".format(self.__class__.__name__, self.id,
+        return "[{}] ({}) {}".format(type(self).__name__, self.id,
                                      self.__dict__)
