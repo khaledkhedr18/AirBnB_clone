@@ -18,7 +18,7 @@ class BaseModel:
         """the save method for the class"""
         self.updatedat = datetime.datetime.now()
 
-    def  to_dict(self):
+    def to_dict(self):
         """
         the to_dict method for the class
         it will return a dictionary containing
@@ -26,11 +26,10 @@ class BaseModel:
         """
 
         dictionary = self.__dict__
-        dictionary.update({'__class__' : self.__class__.__name__})
+        dictionary.update({'__class__': self.__class__.__name__})
         dictionary['createdat'] = self.createdat.isoformat()
         dictionary['updatedat'] = self.updatedat.isoformat()
         return dictionary
-
 
     def __str__(self):
         """
