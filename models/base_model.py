@@ -31,4 +31,10 @@ class BaseModel:
 
 
     def __str__(self):
+        """
+        the __str__ method for the class
+        it will return a string containing
+        all the attributes and methods for the class
+        """
         return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
+    
