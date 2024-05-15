@@ -1,8 +1,5 @@
 #!/usr/bin/python3
-""" This module defines the BaseModel class that defines
-all common attributes/methods for other classes """
-
-
+"""This module defines the BaseModel class"""
 import datetime
 import uuid
 
@@ -10,9 +7,15 @@ import uuid
 class BaseModel:
     def __init__(self, *args, **kwargs):
         """ the initialization method for the class"""
-        self.id = str(uuid.uuid4())
-        self.created_at = datetime.datetime.now()
-        self.updated_at = datetime.datetime.now()
+        if not kwargs:
+            self.id = str(uuid.uuid4())
+            self.created_at = datetime.datetime.now()
+
+        else:
+            kwargs['updated_at'] = datetime.strptime(kwargs['updated_at'], '%Y-%m-%dT%H:%M:%S.%f')
+            kwargs['created_at'] = datetime.strptime(kwargs['created_at'], '%Y-%m-%dT%H:%M:%S.%f')
+            self.__dict__.update(kwargs)
+        self.save()
 
     def save(self):
         """the save method for the class"""
