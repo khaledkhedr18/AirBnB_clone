@@ -4,6 +4,7 @@ from models.base_model import BaseModel
 
 import pytest
 
+
 class TestBaseModel:
 
     def test_base_model_instance_created_successfully(self):

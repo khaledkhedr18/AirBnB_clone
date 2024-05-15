@@ -1,6 +1,7 @@
 #!usr/bin/python3
 import unittest
 from models.base_model import BaseModel
+import datetime
 
 class TestBaseModel(unittest.TestCase):
     def test_id_should_be_unique_for_each_instance(self):
@@ -39,6 +40,7 @@ class TestBaseModel(unittest.TestCase):
         instance.save()
 
         self.assertGreater(instance.updated_at, initial_updated_at)
+
 
 if __name__ == '__main__':
     unittest.main()
