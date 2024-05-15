@@ -3,6 +3,7 @@ import unittest
 from models.base_model import BaseModel
 import datetime
 
+
 class TestBaseModel(unittest.TestCase):
     def test_id_should_be_unique_for_each_instance(self):
         instance1 = BaseModel()
